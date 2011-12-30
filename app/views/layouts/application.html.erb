@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>Areequal</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", "bootstrap.min" %>
+  <%= javascript_include_tag "application", "bootstrap-dropdown" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render "shared/menu" %>
 
 <%= yield %>
 
