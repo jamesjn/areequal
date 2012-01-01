@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111231190936) do
+ActiveRecord::Schema.define(:version => 20120101224251) do
+
+  create_table "arts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "art1_type"
+    t.string   "art1_info"
+    t.string   "art2_type"
+    t.string   "art2_info"
+    t.string   "category"
+    t.string   "tags"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "facebook_user_id"

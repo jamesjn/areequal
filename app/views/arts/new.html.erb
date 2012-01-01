@@ -1,89 +1,85 @@
 <div class="container">
-  <h1>Create Art</h1>
-  <div class="row">
-    <div class="span3">
-      <h3>Title:</h3>
+  <%= form_for @art, :url => { :action => "create" }, :html => {:class => "art_form"} do |f| %>
+    <h1>Create Art</h1>
+    <div class="row">
+      <div class="span3">
+        <h3>Title:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_field :title, {:class => "span6"} %>
+      </div>
     </div>
-    <div class="span13">
-      <input class="span6" type="text">
+    <div class="row">
+      <div class="span3">
+        <h3>Description:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_area :description, {:class => "xxlarge", :rows => "3"} %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-      <h3>Description:</h3>
-    </div>
-    <div class="span13">
-      <textarea class="xxlarge" rows="3"></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-      <h3>Art 1:</h3>
-    </div>
-    <div class="span3">
-      <div class="input">
-        <select class="medium" multiple="multiple" size="3">
+    <div class="row">
+      <div class="span3">
+        <h3>Art 1:</h3>
+      </div>
+      <div class="span3">
+        <select id = "art_art1_type" name="art[art1_type]" class="medium" multiple="multiple" size="3">
           <option>Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
+      <div class="span3">
+        <input class="input-file" type="file">
+      </div>
     </div>
-    <div class="span3">
-      <button class="btn">Choose File to Upload</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-      <h3>Art 2:</h3>
-    </div>
-    <div class="span3">
-      <div class="input">
-        <select class="medium" multiple="multiple" size="3">
+    <div class="row">
+      <div class="span3">
+        <h3>Art 2:</h3>
+      </div>
+      <div class="span3">
+        <select id = "art_art2_type" name="art[art2_type]" class="medium" multiple="multiple" size="3">
           <option>Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
+      <div class="span3">
+        <input class="input-file" type="file">
+      </div>
     </div>
-    <div class="span3">
-      <button class="btn">Choose File to Upload</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-      <h3>Category</h3>
-    </div>
-    <div class="span13">
-      <div class="input">
-        <select class="medium" multiple="multiple" size="4">
-          <option>Images</option>
+    <div class="row">
+      <div class="span3">
+        <h3>Category</h3>
+      </div>
+      <div class="span13">
+        <select id = "art_category" name="art[category]" class="medium" multiple="multiple" size="4">
+          <option>Image</option>
           <option>Video</option>
           <option>Text</option>
           <option>Combination</option>
         </select>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-      <h3>Tags:</h3>
+    <div class="row">
+      <div class="span3">
+        <h3>Tags:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_field :tags, {:class => "span6"} %>
+      </div>
     </div>
-    <div class="span13">
-      <input class="span6" type="text">
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="span3">
-      &nbsp
+    <div class="row">
+      <div class="span3">
+        &nbsp
+      </div>
+      <div class="span3">
+        <button class="btn success">Preview</button>
+        <%= f.submit "Publish", :class => "btn danger" %>
+      </div>
+      <div class="span3">
+        <button class="btn primary">Save Draft</button>
+      </div>
     </div>
-    <div class="span3">
-      <button class="btn success">Preview</button>
-      <button class="btn danger">Publish</button>
-    </div>
-    <div class="span3">
-      <button class="btn primary">Save Draft</button>
-    </div>
-  </div>
+  <% end %>
 </div>
