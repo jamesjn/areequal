@@ -6,9 +6,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-dropdown
 //= require_tree .
 $.ready(function(){
   $('#topbar').dropdown();
+});
+
+$("#login-button").live("click", function(){
+  FB.login(function(response){
+  
+  }); 
+});
+
+$("#logout-button").live("click", function(){
+  FB.logout(function(response){
+    $("#login-dropdown").hide(); 
+    $("#login-button").show(); 
+    $("#logged-in-as").html();
+  });
 });
 
 window.fbAsyncInit = function() {
@@ -19,10 +34,33 @@ window.fbAsyncInit = function() {
           xfbml      : true,
           oauth      : true,
         });
+        FB.getLoginStatus(function(response) {
+          FB.Event.subscribe('auth.login', function(response) {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            $("#login-dropdown").show(); 
+            $("#login-button").hide(); 
+            $("#logged-in-as").html(uid);
+          });
+          if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            $("#login-dropdown").show(); 
+            $("#login-button").hide(); 
+            $("#logged-in-as").html(uid);
+            
+          } else if (response.status === 'not_authorized') {
+            // the user is logged in to Facebook, 
+            //but not connected to the app
+          } else {
+            // the user isn't even logged in to Facebook.
+          }
+        });
       };
-      (function(d){
-          var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-          js = d.createElement('script'); js.id = id; js.async = true;
-          js.src = "//connect.facebook.net/en_US/all.js";
-          d.getElementsByTagName('head')[0].appendChild(js);
-        }(document));
+(function(d){
+  var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+  js = d.createElement('script'); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  d.getElementsByTagName('head')[0].appendChild(js);
+}(document));
+
