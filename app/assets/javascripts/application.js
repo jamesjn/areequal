@@ -14,6 +14,17 @@ $.ready(function(){
 
 $("#login-button").live("click", function(){
   FB.login(function(response){
+    FB.api('/me', function(response) {
+      var fb_res = response;
+      $("#login-dropdown").show(); 
+      $("#login-button").hide(); 
+      $("#signup-button").hide(); 
+      $("#logged-in-as").html(fb_res.name);
+    });
+    var uid = response.authResponse.userID;
+    var signed_request = response.authResponse.signedRequest;
+    $.post("/areequal/login", {'signed_request':signed_request}, function(){
+    });
   
   }); 
 });
@@ -35,13 +46,6 @@ window.fbAsyncInit = function() {
           oauth      : true,
         });
         FB.getLoginStatus(function(response) {
-          FB.Event.subscribe('auth.login', function(response) {
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
-            $("#login-dropdown").show(); 
-            $("#login-button").hide(); 
-            $("#logged-in-as").html(uid);
-          });
           if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;

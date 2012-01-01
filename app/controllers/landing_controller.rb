@@ -6,7 +6,7 @@ class LandingController < ApplicationController
     signed_request = params["signed_request"]
     secret_id = '4c5b5434fa5baae93460ca54eee86374'
     facebook_data = decode_data(secret_id, signed_request)
-    render :text => "#{facebook_data}"
+    @data = "#{facebook_data}"
   end
 
   private 
