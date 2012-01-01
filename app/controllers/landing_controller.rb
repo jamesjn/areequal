@@ -6,7 +6,9 @@ class LandingController < ApplicationController
     signed_request = params["signed_request"]
     secret_id = '4c5b5434fa5baae93460ca54eee86374'
     facebook_data = decode_data(secret_id, signed_request)
-    @data = "#{facebook_data}"
+    user = User.find_or_create_by_id(facebook_data["user_id"])
+    session[:user_id] = user.id
+    render :json => {:verified => true}
   end
 
   private 

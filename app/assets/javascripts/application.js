@@ -12,18 +12,23 @@ $.ready(function(){
   $('#topbar').dropdown();
 });
 
-$("#login-button").live("click", function(){
+$("#login-facebook-button").live("click", function(){
   FB.login(function(response){
-    FB.api('/me', function(response) {
-      var fb_res = response;
-      $("#login-dropdown").show(); 
-      $("#login-button").hide(); 
-      $("#signup-button").hide(); 
-      $("#logged-in-as").html(fb_res.name);
-    });
     var uid = response.authResponse.userID;
     var signed_request = response.authResponse.signedRequest;
-    $.post("/areequal/login", {'signed_request':signed_request}, function(){
+    FB.api('/me', function(response) {
+      var fb_res = response;
+        $.post("/areequal/login", {'signed_request':signed_request, 'fb_response':fb_res}, function(data){
+          if(data["verified"] = true){
+            $("#login-dropdown").show(); 
+            $("#login-facebook-button").hide(); 
+            $("#login-google-button").hide(); 
+            $("#logged-in-as").html(fb_res.name);
+          }
+          else{
+            alert("Invalid User");
+          }
+        });
     });
   
   }); 
@@ -32,7 +37,8 @@ $("#login-button").live("click", function(){
 $("#logout-button").live("click", function(){
   FB.logout(function(response){
     $("#login-dropdown").hide(); 
-    $("#login-button").show(); 
+    $("#login-facebook-button").show(); 
+    $("#login-google-button").show(); 
     $("#logged-in-as").html();
   });
 });
@@ -50,7 +56,8 @@ window.fbAsyncInit = function() {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
             $("#login-dropdown").show(); 
-            $("#login-button").hide(); 
+            $("#login-facebook-button").hide(); 
+            $("#login-google-button").hide(); 
             $("#logged-in-as").html(uid);
             
           } else if (response.status === 'not_authorized') {
