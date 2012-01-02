@@ -16,10 +16,7 @@ $.ready(function(){
   $('#topbar').dropdown();
 });
 
-$("#login-facebook-button").live("click", function(){
-  FB.login(function(response){
-    var uid = response.authResponse.userID;
-    var signed_request = response.authResponse.signedRequest;
+var check_login_and_display_menu = function(signed_request){
     FB.api('/me', function(response) {
       var fb_res = response;
         $.post("/areequal/login", {'signed_request':signed_request, 'fb_response':fb_res}, function(data){
@@ -34,7 +31,13 @@ $("#login-facebook-button").live("click", function(){
           }
         });
     });
-  
+}
+
+$("#login-facebook-button").live("click", function(){
+  FB.login(function(response){
+    var uid = response.authResponse.userID;
+    var signed_request = response.authResponse.signedRequest;
+    check_login_and_display_menu(signed_request);
   }); 
 });
 
@@ -59,15 +62,21 @@ window.fbAsyncInit = function() {
           if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
-            $("#login-dropdown").show(); 
-            $("#login-facebook-button").hide(); 
-            $("#login-google-button").hide(); 
-            $("#logged-in-as").html(uid);
+            var signed_request = response.authResponse.signedRequest;
+            check_login_and_display_menu(signed_request);
             
           } else if (response.status === 'not_authorized') {
+            $("#login-dropdown").hide(); 
+            $("#login-facebook-button").show(); 
+            $("#login-google-button").show(); 
+            $("#logged-in-as").html();
             // the user is logged in to Facebook, 
             //but not connected to the app
           } else {
+            $("#login-dropdown").hide(); 
+            $("#login-facebook-button").show(); 
+            $("#login-google-button").show(); 
+            $("#logged-in-as").html();
             // the user isn't even logged in to Facebook.
           }
         });
@@ -94,6 +103,7 @@ upload = function (file, dom) {
     $('#'+dom+'_picture').html('<img src="'+image_loc+'.jpg'+'" alt="Art 1" height="50"  />');
     $('#'+dom+'_picture').show();
     $('#'+dom+'_selector').hide();
+    $('#'+dom+'_info').attr("value", image_loc+'.jpg');
    }
    xhr.send(fd);
 }

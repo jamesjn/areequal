@@ -21,9 +21,11 @@ art_selector = (that) ->
   el_id = $(that).attr("id") 
   "<span onclick=\"$('#{'#'+el_id+'_uploader'}').click()\" class=\"btn\">Upload Art</span> <input id=\"#{el_id+'_uploader'}\" type=\"file\" style=\"display:none\" onchange=\"upload(this.files[0], '#{el_id}')\">"
 
-video_selector = () ->
+video_selector = (that) ->
+  el_id = $(that).attr("id") 
   "Video selector"
 
-text_selector = () ->
+text_selector = (that) ->
+  el_id = $(that).attr("id") 
   "Text selector"
 
