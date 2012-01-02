@@ -7,6 +7,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-dropdown
+//= require yahoo_editor/yahoo-dom-event
+//= require yahoo_editor/element-min
+//= require yahoo_editor/container_core-min
+//= require yahoo_editor/simpleeditor-min
 //= require_tree .
 $.ready(function(){
   $('#topbar').dropdown();
@@ -87,8 +91,9 @@ upload = function (file, dom) {
   xhr.open("POST", "http://api.imgur.com/2/upload.json");
   xhr.onload = function() {
     image_loc = JSON.parse(xhr.responseText).upload.links.imgur_page;
-    $(dom+'_picture').html('<img src="'+image_loc+'.jpg'+'" alt="Art 1" height="50"  />');
-    $(dom+'_button').hide();
+    $('#'+dom+'_picture').html('<img src="'+image_loc+'.jpg'+'" alt="Art 1" height="50"  />');
+    $('#'+dom+'_picture').show();
+    $('#'+dom+'_selector').hide();
    }
    xhr.send(fd);
 }

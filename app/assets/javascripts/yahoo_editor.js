@@ -1,6 +1,6 @@
   
   
-  $(document).ready(function(){
+$(document).ready(function(){
 var myEditor = new YAHOO.widget.SimpleEditor('msgpost', {
     height: '200px',
     width: '500px',

@@ -24,17 +24,17 @@
       </div>
       <div class="span3">
         <select id = "art_art1_type" name="art[art1_type]" class="medium" multiple="multiple" size="3">
-          <option>Image</option>
+          <option selected="selected">Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
       <div class="span3">
-        <span id="art1_picture">
+        <span id="art_art1_type_picture">
         </span>
-        <span id="art1_button">
-          <span onclick="$('#art1_upload').click()" class="btn">Upload Art 1</span>
-          <input id="art1_upload" type="file" style="display:none" onchange="upload(this.files[0], '#art1')">
+        <span id="art_art1_type_selector">
+          <span onclick="$('#art_art1_type_uploader').click()" class="btn">Upload Art</span>
+          <input id="art_art1_type_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art_art1_type')">
         </span>
       </div>
     </div>
@@ -44,17 +44,17 @@
       </div>
       <div class="span3">
         <select id = "art_art2_type" name="art[art2_type]" class="medium" multiple="multiple" size="3">
-          <option>Image</option>
+          <option selected="selected">Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
       <div class="span3">
-        <span id="art2_picture">
+        <span id="art_art2_type_picture">
         </span>
-        <span id="art2_button">
-          <span onclick="$('#art2_upload').click()" class="btn">Upload Art 2</span>
-          <input id="art2_upload" type="file" style="display:none" onchange="upload(this.files[0], '#art2')">
+        <span id="art_art2_type_selector">
+          <span onclick="$('#art_art2_type_uploader').click()" class="btn">Upload Art</span>
+          <input id="art_art2_type_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art_art2_type')">
         </span>
       </div>
     </div>
@@ -64,7 +64,7 @@
       </div>
       <div class="span13">
         <select id = "art_category" name="art[category]" class="medium" multiple="multiple" size="4">
-          <option>Image</option>
+          <option selected="selected">Image</option>
           <option>Video</option>
           <option>Text</option>
           <option>Combination</option>
