@@ -1,3 +1,7 @@
 body{
  padding-top: 40px;
 }
+.uploading div {display: none}
+.uploaded div {display: none}
+.uploading p {display: inline}
+.uploaded #link {display: inline}

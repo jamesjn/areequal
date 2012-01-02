@@ -75,3 +75,21 @@ window.fbAsyncInit = function() {
   d.getElementsByTagName('head')[0].appendChild(js);
 }(document));
 
+
+upload = function (file, dom) {
+ 
+  if (!file || !file.type.match(/image.*/)) return;
+ 
+  var fd = new FormData();
+  fd.append("image", file); // Append the file
+  fd.append("key", "b1507316815a853a7a23318ff905a486");
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://api.imgur.com/2/upload.json");
+  xhr.onload = function() {
+    image_loc = JSON.parse(xhr.responseText).upload.links.imgur_page;
+    $(dom+'_picture').html('<img src="'+image_loc+'.jpg'+'" alt="Art 1" height="50"  />');
+    $(dom+'_button').hide();
+   }
+   xhr.send(fd);
+}
+

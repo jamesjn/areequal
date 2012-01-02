@@ -29,7 +29,12 @@
         </select>
       </div>
       <div class="span3">
-        <input class="input-file" type="file">
+        <span id="art1_picture">
+        </span>
+        <span id="art1_button">
+          <span onclick="$('#art1_upload').click()" class="btn">Upload Art 1</span>
+          <input id="art1_upload" type="file" style="display:none" onchange="upload(this.files[0], '#art1')">
+        </span>
       </div>
     </div>
     <div class="row">
@@ -44,7 +49,12 @@
         </select>
       </div>
       <div class="span3">
-        <input class="input-file" type="file">
+        <span id="art2_picture">
+        </span>
+        <span id="art2_button">
+          <span onclick="$('#art2_upload').click()" class="btn">Upload Art 2</span>
+          <input id="art2_upload" type="file" style="display:none" onchange="upload(this.files[0], '#art2')">
+        </span>
       </div>
     </div>
     <div class="row">
