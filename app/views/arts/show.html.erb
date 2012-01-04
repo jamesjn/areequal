@@ -15,7 +15,7 @@
       <ul class="media-grid">
         <li>
           <a href="#">
-            <h1><%= @art.art1_info %></h1>
+            <h1><%= render :partial => "art", :locals => {:type => @art.art1_type, :info => @art.art1_info}%></h1>
           </a>
         </li>
       </ul>
@@ -24,7 +24,7 @@
       <ul class="media-grid">
         <li>
           <a href="#">
-            <h1><%= @art.art2_info %></h1>
+            <h1><%= render :partial => "art", :locals => {:type => @art.art2_type, :info => @art.art2_info}%></h1>
           </a>
           </a>
         </li>

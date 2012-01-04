@@ -23,20 +23,20 @@
         <h3>Art 1:</h3>
       </div>
       <div class="span3">
-        <select id = "art_art1_type" name="art[art1_type]" class="medium" multiple="multiple" size="3">
+        <select id = "art1" name="art[art1_type]" class="medium" multiple="multiple" size="3">
           <option selected="selected">Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
       <div class="span3">
-        <span id="art_art1_type_picture">
+        <span id="art1_picture">
         </span>
-        <span id="art_art1_type_selector">
-          <span onclick="$('#art_art1_type_uploader').click()" class="btn">Upload Art</span>
-          <input id="art_art1_type_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art_art1_type')">
+        <span id="art1_selector">
+          <span onclick="$('#alrt1_uploader').click()" class="btn">Upload Art</span>
+          <input id="art1_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art1')">
+          <input id="art1_info" type="hidden" name="art[art1_info]">
         </span>
-        <input id="art_art1_type_info" type="hidden" name="art[art1_info]">
       </div>
     </div>
     <div class="row">
@@ -44,20 +44,20 @@
         <h3>Art 2:</h3>
       </div>
       <div class="span3">
-        <select id = "art_art2_type" name="art[art2_type]" class="medium" multiple="multiple" size="3">
+        <select id = "art2" name="art[art2_type]" class="medium" multiple="multiple" size="3">
           <option selected="selected">Image</option>
           <option>Video</option>
           <option>Text</option>
         </select>
       </div>
       <div class="span3">
-        <span id="art_art2_type_picture">
+        <span id="art2_picture">
         </span>
-        <span id="art_art2_type_selector">
-          <span onclick="$('#art_art2_type_uploader').click()" class="btn">Upload Art</span>
-          <input id="art_art2_type_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art_art2_type')">
+        <span id="art2_selector">
+          <span onclick="$('#art2_uploader').click()" class="btn">Upload Art</span>
+          <input id="art2_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art2')">
+          <input id="art2_info" type="hidden" name="art[art2_info]">
         </span>
-        <input id="art_art2_type_info" type="hidden" name="art[art2_info]">
       </div>
     </div>
     <div class="row">

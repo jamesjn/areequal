@@ -1,0 +1,8 @@
+<% if type == "Image" %>
+  <img src="<%= info %>" width="300"/>
+<% elsif type == "Video" %> 
+  <%= (youtube_embed info).html_safe %> 
+<% elsif type == "Text" %>
+  <%= info %>
+<% end %>
+

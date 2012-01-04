@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$("#art_art1_type, #art_art2_type").live "change", (event) ->
+$("#art1, #art2").live "change", (event) ->
   switch $(this).attr('value') 
     when "Image"
       $("#" + $(this).attr("id") + "_picture").hide()
@@ -19,13 +19,15 @@ $("#art_art1_type, #art_art2_type").live "change", (event) ->
       
 art_selector = (that) ->
   el_id = $(that).attr("id") 
-  "<span onclick=\"$('#{'#'+el_id+'_uploader'}').click()\" class=\"btn\">Upload Art</span> <input id=\"#{el_id+'_uploader'}\" type=\"file\" style=\"display:none\" onchange=\"upload(this.files[0], '#{el_id}')\">"
+  "<span onclick=\"$('#{'#'+el_id+'_uploader'}').click()\" class=\"btn\">Upload Art</span> <input id=\"#{el_id+'_uploader'}\" type=\"file\" style=\"display:none\" onchange=\"upload(this.files[0], '#{el_id}')\"> <input id=\"#{el_id}_info\" type=\"hidden\" name=\"art[#{el_id}_info]\">"
 
 video_selector = (that) ->
   el_id = $(that).attr("id") 
-  "Video selector"
+  "URL: <input id=\"#{el_id+'_info'}\" name=\"art[#{el_id}_info]\" class=\"span5\" type=\"text\" size=\"20\" >"
 
 text_selector = (that) ->
   el_id = $(that).attr("id") 
-  "Text selector"
+  "Text: <input id=\"#{el_id+'_info'}\" name=\"art[#{el_id}_info]\" class=\"span5\" type=\"text\" size=\"20\" >"
+
+
 
