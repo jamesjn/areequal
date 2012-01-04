@@ -1,5 +1,5 @@
 class ArtsController < ApplicationController
-  include ArtsHelper
+  include ArtsHelper, AuthenticationHelper
   before_filter :ensure_signed_in
 
   def new
@@ -9,8 +9,12 @@ class ArtsController < ApplicationController
   def create
     art_params = params[:art]
     art_params["user_id"] = session[:user_id]
-    @art = Art.create(art_params)
-    redirect_to(@art)
+    @art = Art.new(art_params)
+    if @art.save
+      redirect_to(@art)
+    else
+      render :action => 'new'
+    end
   end
 
   def show

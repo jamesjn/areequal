@@ -1,7 +1,7 @@
 body{
  padding-top: 40px;
 }
-.uploading div {display: none}
-.uploaded div {display: none}
-.uploading p {display: inline}
-.uploaded #link {display: inline}
+
+.arts_listing:hover{
+  background: none repeat scroll 0 0 #DDDDDD;
+}

@@ -1,0 +1,29 @@
+<div class="arts_listing container" data-id= <%=art_listing.id %> >
+  <div class="row">
+    <div class="span5">
+      <span style="font-weight:bold;"><%= art_listing.title %></span> @<%= art_listing.user.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span3">
+      <ul class="media-grid">
+        <li>
+          <a href="#">
+            <h1><%= render :partial => "shared/art", :locals => {:type => art_listing.art1_type, :info => art_listing.art1_info, :width => 150}%></h1>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="span3">
+      <ul class="media-grid">
+        <li>
+          <a href="#">
+            <h1><%= render :partial => "shared/art", :locals => {:type => art_listing.art2_type, :info => art_listing.art2_info, :width => 150}%></h1>
+          </a>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr>
