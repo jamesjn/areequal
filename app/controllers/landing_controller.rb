@@ -12,6 +12,11 @@ class LandingController < ApplicationController
     render :json => {:verified => true}
   end
 
+  def logout
+    session[:user_id] = nil
+    render :json => {:logout => true}
+  end
+
   private 
     def urldecode64(str)
       encoded_str = str.tr('-_', '+/')

@@ -1,19 +1,27 @@
 class ArtsController < ApplicationController
-  include ArtsHelper, AuthenticationHelper
-  before_filter :ensure_signed_in
+  include ArtsHelper
 
   def new
-    @art = Art.new
+    if session[:user_id].nil?
+      render :action => 'log_in_option'
+    else
+      @art = Art.new
+    end
   end
 
+
   def create
-    art_params = params[:art]
-    art_params["user_id"] = session[:user_id]
-    @art = Art.new(art_params)
-    if @art.save
-      redirect_to(@art)
+    if session[:user_id].nil?
+      render :text => "Please log in"  
     else
-      render :action => 'new'
+      art_params = params[:art]
+      art_params["user_id"] = session[:user_id]
+      @art = Art.new(art_params)
+      if @art.save
+        redirect_to(@art)
+      else
+        render :action => 'new'
+      end
     end
   end
 

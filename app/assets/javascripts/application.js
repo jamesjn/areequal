@@ -47,6 +47,8 @@ $("#logout-button").live("click", function(){
     $("#login-facebook-button").show(); 
     $("#login-google-button").show(); 
     $("#logged-in-as").html();
+    $.post("/areequal/logout", function(data){
+    });
   });
 });
 
