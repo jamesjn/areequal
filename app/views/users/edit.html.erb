@@ -1,0 +1,48 @@
+<div class="container">
+  <%= form_for @user, :user => { :action => "update" }, :html => {:class => "user_form"} do |f| %>
+    <% if flash[:saved] %>
+      <p>
+        <div class="alert-message success">
+          User has been saved!!!
+        </div>
+      </p>
+    <% end %>
+    <% if @user.errors.any? %>
+      <div id="errorExplanation" class="alert-message error">
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %> </li>
+        <% end %>
+      </div>
+    <% end %>
+    <h1> Edit Profile </h1>
+    <div class="row">
+      <div class = "span3">
+        <h3>Facebook ID:</h3>
+      </div>
+      <div class = "span6">
+        <%= f.text_field :id, {:class => "span6 disabled", :disabled => ""} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "span3">
+        <h3>Name:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_field :name, {:span => "span6"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class = "span3">
+        <h3>Email Address:</h3>
+      </div>
+      <div class = "span6">
+        <%= f.text_field :email, {:class => "span6"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <%= f.submit "Save", :class => "btn danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
