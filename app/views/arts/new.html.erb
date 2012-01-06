@@ -2,7 +2,7 @@
 <div class="container">
   <%= form_for @art, :url => { :action => "create" }, :html => {:class => "art_form"} do |f| %>
     <% if @art.errors.any? %>
-      <div id="errorExplanation" class="alert-message warning">
+      <div id="errorExplanation" class="alert-message block_message warning">
         <% @art.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
