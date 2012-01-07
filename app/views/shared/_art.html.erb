@@ -3,6 +3,6 @@
 <% elsif type == "Video" %> 
   <%= (youtube_embed info, width).html_safe %> 
 <% elsif type == "Text" %>
-  <%= info %>
+  <%= h info %>
 <% end %>
 
