@@ -32,6 +32,7 @@ class ArtsController < ApplicationController
 
   def search
     @search_term = params[:query]
+    @arts_found = Art.search @search_term
   end
   
   helper_method :youtube_embed

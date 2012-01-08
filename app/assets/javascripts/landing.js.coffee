@@ -4,4 +4,6 @@
 $(".arts_listing").live "click", (event)->
   window.location += ("/arts/" + $(this).attr("data-id"))
   
-  
+$("#landing-search-box").live "keypress", (event)->
+  if event.keyCode == 13 #user pressed enter
+    window.location.replace("/areequal/search/" + $(this).val())
