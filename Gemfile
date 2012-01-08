@@ -21,6 +21,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'minitest'
 gem "dynamic_form"
+gem 'thinking-sphinx', '2.0.10'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

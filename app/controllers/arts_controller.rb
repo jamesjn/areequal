@@ -29,6 +29,10 @@ class ArtsController < ApplicationController
     @art = Art.find(params[:id])
     @owner = User.find(@art.user_id)
   end
+
+  def search
+    @search_term = params[:query]
+  end
   
   helper_method :youtube_embed
 end
