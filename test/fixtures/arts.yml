@@ -1,25 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   user_id: 1
-  title: MyString
-  description: MyString
-  art1_type: MyString
-  art1_info: MyString
-  art2_type: MyString
-  art2_info: MyString
-  category: MyString
-  tags: MyString
-  status: MyString
+  title: "example text art title"
+  description: "This is a sample description"
+  art1_type: Text
+  art1_info: "This is the text of the frst text art"
+  art2_type: Text
+  art2_info: "This is the text of the second text art"
+  category: Text
+  tags: None
+  status:
 
-two:
-  user_id: 1
-  title: MyString
-  description: MyString
-  art1_type: MyString
-  art1_info: MyString
-  art2_type: MyString
-  art2_info: MyString
-  category: MyString
-  tags: MyString
-  status: MyString

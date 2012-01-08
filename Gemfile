@@ -38,4 +38,5 @@ gem 'thinking-sphinx', '2.0.10'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'rspec'
 end

@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "get users works" do
-  	get :new
+
+  test "get edit" do
+  	get :edit, {:id=>1}
     assert_response :success
   end
+
 end

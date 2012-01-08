@@ -1,0 +1,9 @@
+
+<span id="art_listing">
+  <div class="row">
+    <div class="span16">
+      <h1>Art for user: '<%= @current_user.id %>'</h1>
+    </div>
+  </div>
+  <%= render :partial => "shared/art_listing", :collection => @users_art%>
+</span>
