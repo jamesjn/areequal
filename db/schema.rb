@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101224251) do
+ActiveRecord::Schema.define(:version => 20120110013059) do
 
   create_table "arts", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120101224251) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_url"
   end
 
 end

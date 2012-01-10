@@ -40,9 +40,22 @@
       </div>
     </div>
     <div class="row">
-      <div class="span3">
+      <div class="span8">
+        <span id="profile_picture">
+          <% if @user.profile_url %>
+            <img src="<%= @user.profile_url %>" alt="profile picture" height="200"/>  
+          <% end %>
+        </span>
+        <span id="profile_selector">
+          <span onclick="$('#profile_uploader').click()" class="btn">Upload Profile Picture</span>
+          <input id="profile_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'profile')">
+          <input id="profile_info" type="hidden" name="user[profile_url]">
+        </span>
+      <div class="span8" style="text-align:right">
         <%= f.submit "Save", :class => "btn danger" %>
       </div>
+    </div>
+    <br/>
     </div>
   <% end %>
 </div>
