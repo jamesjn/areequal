@@ -1,0 +1,108 @@
+
+<div class="container">
+  <%= form_for @art, :url => { :action => "update" }, :html => {:class => "art_form"} do |f| %>
+    <% if @art.errors.any? %>
+      <div id="errorExplanation" class="alert-message block_message warning">
+        <% @art.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </div>
+    <% end %>
+    <h1>Edit Art</h1>
+    <div class="row">
+      <div class="span3">
+        <h3>Title:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_field :title, {:class => "span6"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <h3>Description:</h3>
+      </div>
+      <div class="span13 yui-skin-sam" >
+        <textarea name="art[description]" id="art-description-yui" cols="50" rows="10">
+          Please enter your description
+        </textarea> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <h3>Art 1:</h3>
+      </div>
+      <div class="span3">
+        <select id = "art1" name="art[art1_type]" class="medium" multiple="multiple" size="3">
+          <option selected="selected">Image</option>
+          <option>Video</option>
+          <option>Text</option>
+        </select>
+      </div>
+      <div class="span3">
+        <span id="art1_picture">
+        </span>
+        <span id="art1_selector">
+          <span onclick="$('#art1_uploader').click()" class="btn">Upload Art</span>
+          <input id="art1_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art1')">
+          <input id="art1_info" type="hidden" name="art[art1_info]">
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <h3>Art 2:</h3>
+      </div>
+      <div class="span3">
+        <select id = "art2" name="art[art2_type]" class="medium" multiple="multiple" size="3">
+          <option selected="selected">Image</option>
+          <option>Video</option>
+          <option>Text</option>
+        </select>
+      </div>
+      <div class="span3">
+        <span id="art2_picture">
+        </span>
+        <span id="art2_selector">
+          <span onclick="$('#art2_uploader').click()" class="btn">Upload Art</span>
+          <input id="art2_uploader" type="file" style="display:none" onchange="upload(this.files[0], 'art2')">
+          <input id="art2_info" type="hidden" name="art[art2_info]">
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <h3>Category</h3>
+      </div>
+      <div class="span13">
+        <select id = "art_category" name="art[category]" class="medium" multiple="multiple" size="4">
+          <option selected="selected">Image</option>
+          <option>Video</option>
+          <option>Text</option>
+          <option>Combination</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <h3>Tags:</h3>
+      </div>
+      <div class="span13">
+        <%= f.text_field :tags, {:class => "span6"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span3">
+        &nbsp
+      </div>
+      <div class="span3">
+        <button class="btn success">Preview</button>
+        <%= f.submit "Publish", :class => "btn danger" %>
+      </div>
+      <div class="span3">
+        <button class="btn primary">Save Draft</button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
