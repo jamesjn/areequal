@@ -1,3 +1,26 @@
 <span id="art_listing">
-  <%= render :partial => "shared/art_listing", :collection => @arts %>
+  <div class="container" >
+    <div class="row">
+      <div class="span8">
+      &nbsp
+      </div>
+      <div class="span7" >
+        <div class="row">
+          <div class="span2">
+            <div class="input">
+              <select id="filter_art_select">
+                <option>All</option>
+                <option>Image</option>
+                <option>Video</option>
+                <option>Text</option>
+                <option>Combination</option>
+              </select>
+            </div>
+          </div>
+          <div id="art_area" class="row">
+            <%= render :partial => "shared/art_listing", :collection => @arts %>
+          </div>
+      </div>
+    </div>
+  </div>
 </span>

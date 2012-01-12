@@ -1,12 +1,10 @@
 body{
   padding-top: 40px;
   height: 100%;
+  background: none repeat scroll 0 0 #F5F5F5;
 }
 
 html{
   height: 100%;
 }
 
-.arts_listing:hover{
-  background: none repeat scroll 0 0 #DDDDDD;
-}

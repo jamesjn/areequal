@@ -49,6 +49,7 @@
       <button class="btn info">Add to Favorites</button>
       <button class="btn success">Share</button>
       <button class="btn danger">Flag</button>
+      <div class="fb-like" data-href="http://www.jamesjn.com/areequal/arts/<%= @art.id %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
     </div>
   </div>
   <div class="row">
@@ -78,3 +79,11 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=152460108176191";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

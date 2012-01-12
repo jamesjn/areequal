@@ -22,6 +22,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user.id = session[:user_id]
+      render
+    else
+      flash[:error] = "Incorrect User"
+      redirect_to root_url
+    end
   end
 
   def update

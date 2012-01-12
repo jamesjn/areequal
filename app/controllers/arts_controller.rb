@@ -34,6 +34,25 @@ class ArtsController < ApplicationController
     @search_term = params[:query]
     @arts_found = Art.search @search_term
   end
+
+  def edit
+    @art = Art.find(params[:id])
+    if @art.user_id != session[:user_id]
+      flash[:error] = "You are not the owner of the art"
+      redirect_to @art  
+    else
+      render
+    end 
+  end
+
+  def index
+    if params[:category] == 'All'
+      @arts = Art.all
+    else
+      @arts = Art.where(:category => params[:category])
+    end
+    render :partial => "shared/art_listing", :collection => @arts
+  end
   
   helper_method :youtube_embed
 end

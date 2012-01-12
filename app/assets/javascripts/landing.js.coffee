@@ -7,3 +7,7 @@ $(".arts_listing").live "click", (event)->
 $("#landing-search-box").live "keypress", (event)->
   if event.keyCode == 13 #user pressed enter
     window.location.replace("/areequal/search/" + $(this).val())
+
+$("#filter_art_select").live "change", (event)->
+  $.get "areequal/arts", { category: $(this).val() }, (data) ->
+    $("#art_area").html(data)  

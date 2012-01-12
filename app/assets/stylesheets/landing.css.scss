@@ -1,3 +1,16 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.arts_listing{
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+  float: left;
+}
+
+.arts_listing:hover{
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-bottom-color: #CCCCCC;
+  border-right-color: #CCCCCC;
+}

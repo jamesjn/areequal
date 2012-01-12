@@ -5,5 +5,14 @@
       <h1>Art for user: '<%= @current_user.id %>'</h1>
     </div>
   </div>
-  <%= render :partial => "shared/art_listing", :collection => @users_art%>
+  <div class="container">
+    <div class="row">
+      <div class="span1">
+        &nbsp
+      </div>
+      <div class="span8">
+        <%= render :partial => "art_listing", :collection => @users_art%>
+      </div>
+    </div>
+  </div>
 </span>
