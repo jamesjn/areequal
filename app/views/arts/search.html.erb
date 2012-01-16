@@ -4,5 +4,9 @@
         <h1>Search term: '<%= @search_term %>'</h1>
       </div>
     </div>
-    <%= render :partial => "shared/art_listing", :collection => @arts_found %>
+    <% if @arts_found.first == nil %>
+      There is no art that matches the search term
+    <% else %>
+      <%= render :partial => "shared/art_listing", :collection => @arts_found %>
+    <% end %>
 </span>

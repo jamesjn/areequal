@@ -21,26 +21,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    if @user.id = session[:user_id]
-      render
-    else
-      flash[:error] = "Incorrect User"
-      redirect_to root_url
-    end
+    @user = current_user
+    render
   end
 
   def update
     user_params = params[:user]
-    user_params["id"] = session[:user_id]
-    current_user_id = session[:user_id]
-    User.update(current_user_id, user_params)
+    user_params["id"] = current_user.id
+    User.update(current_user.id, user_params)
     flash[:saved] = true
-    redirect_to edit_user_path(current_user_id) 
+    redirect_to edit_user_path(current_user.id) 
   end
 
   def show_art
-    @current_user = User.find(session[:user_id])
+    @current_user = current_user
     @users_art = Art.where(:user_id => current_user.id)
   end
 end

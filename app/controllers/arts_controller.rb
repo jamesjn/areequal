@@ -1,21 +1,22 @@
 class ArtsController < ApplicationController
   include ArtsHelper
+  
 
   def new
-    if session[:user_id].nil?
-      render :action => 'log_in_option'
-    else
+    if user_signed_in?
       @art = Art.new
+    else
+      render :action => 'log_in_option'
     end
   end
 
 
   def create
-    if session[:user_id].nil?
+    if !user_signed_in?
       render :text => "Please log in"  
     else
       art_params = params[:art]
-      art_params["user_id"] = session[:user_id]
+      art_params["user_id"] = current_user.id
       @art = Art.new(art_params)
       if @art.save
         redirect_to(@art)
@@ -37,7 +38,7 @@ class ArtsController < ApplicationController
 
   def edit
     @art = Art.find(params[:id])
-    if @art.user_id != session[:user_id]
+    if @art.user_id != current_user.id
       flash[:error] = "You are not the owner of the art"
       redirect_to @art  
     else

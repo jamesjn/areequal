@@ -5,9 +5,9 @@ class CreateArts < ActiveRecord::Migration
       t.string :title
       t.text   :description
       t.string :art1_type
-      t.string :art1_info
+      t.text :art1_info
       t.string :art2_type
-      t.string :art2_info
+      t.text :art2_info
       t.string :category
       t.string :tags
       t.string :status

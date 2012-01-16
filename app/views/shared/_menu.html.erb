@@ -17,20 +17,23 @@
 				</ul>
         
 				<ul class="nav secondary-nav">
+          <% if !@user %>
           <li>
-            <button id="login-facebook-button" class="btn small primary" style="margin-top:4px; display:none">Log in with facebook</button> 
-            <button id="login-google-button" class="btn small success" style="margin-top:4px; display:none">Log in with google</button> 
+              <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), {:style => "margin-top:5px; height:14px; display:inline-block", :class => "btn small primary"} %>
+              <%= link_to "Login with Google", user_omniauth_authorize_path(:google), {:style => "margin-top:5px; height:14px; display:inline-block", :class => "btn small success"} %>
           </li>
-					<li id="login-dropdown" class="dropdown" style="display: none;">
-						<a id="logged-in-as" href="#" class="dropdown-toggle">Dropdown</a>
+          <% else %>
+					<li id="login-dropdown" class="dropdown" style="">
+						<a id="logged-in-as" href="#" class="dropdown-toggle">Logged in as: <%= @user.email %></a>
 						<ul class="dropdown-menu">
 
 							<li><a href="/areequal/show_user_art">Edit Art</a></li>
-							<li><a href="/areequal/edit_profile">Edit profile</a></li>
+							<li><a href="/areequal/modify_profile">Edit profile</a></li>
 							<li class="divider"></li>
-							<li><a id="logout-button" href="#">Log out</a></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
 						</ul>
 					</li>
+          <% end %>
 				</ul>
 
 			</div>

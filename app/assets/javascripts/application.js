@@ -16,6 +16,7 @@ $.ready(function(){
   $('#topbar').dropdown();
 });
 
+/*
 var check_login_and_display_menu = function(signed_request){
     FB.api('/me', function(response) {
       var fb_res = response;
@@ -90,6 +91,7 @@ window.fbAsyncInit = function() {
   d.getElementsByTagName('head')[0].appendChild(js);
 }(document));
 
+*/
 
 upload = function (file, dom) {
  
@@ -109,4 +111,5 @@ upload = function (file, dom) {
    }
    xhr.send(fd);
 }
+
 
