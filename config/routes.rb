@@ -8,9 +8,10 @@ Areequal::Application.routes.draw do
 
   resources :users 
   resources :arts
-
+  resources :follows
+  resources :favorites
+  match "/show_favorites" => "users#favorites"
   match "/myart" => "users#myart"
-  match "/favorites" => "users#favorites"
   match "/subscriptions" => "users#subscriptions"
   match "/messages" => "users#messages"
   match "/settings" => "users#settings"

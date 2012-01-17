@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117032849) do
+ActiveRecord::Schema.define(:version => 20120117035356) do
 
   create_table "arts", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,27 @@ ActiveRecord::Schema.define(:version => 20120117032849) do
     t.integer  "liked_count"
     t.integer  "favorited_count"
     t.integer  "views"
+  end
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "art_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "art_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

@@ -29,6 +29,7 @@ class ArtsController < ApplicationController
   def show
     @art = Art.find(params[:id])
     @owner = User.find(@art.user_id)
+    @favorited = Favorite.where(:user_id => current_user.id, :art_id => @art.id)  
   end
 
   def search

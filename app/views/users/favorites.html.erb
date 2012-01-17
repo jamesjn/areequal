@@ -1,1 +1,18 @@
-No favorites page yet.
+
+<span id="art_listing">
+  <div class="row">
+    <div class="span16">
+      <h1>My Favorites:</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span1">
+        &nbsp
+      </div>
+      <div class="span8">
+        <%= render :partial => "art_listing", :collection => @users_art%>
+      </div>
+    </div>
+  </div>
+</span>

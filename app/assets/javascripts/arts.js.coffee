@@ -30,4 +30,9 @@ text_selector = (that) ->
   "Text: <input id=\"#{el_id+'_info'}\" name=\"art[#{el_id}_info]\" class=\"span5\" type=\"text\" size=\"20\" >"
 
 
-
+$("#add_to_favorites").live "click", (event) ->
+  art_id = $(this).attr("data-art-id")
+  $.post "http://www.jamesjn.com/areequal/favorites", {art_id:art_id}, (data) ->
+    if data["favorited"] == true
+      $("#add_to_favorites").html("Favorited") 
+      $("#add_to_favorites").attr("id", "Favorited") 

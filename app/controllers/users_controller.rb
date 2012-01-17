@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
+    @users_art = current_user.favorite_arts
     render :favorites, :layout => false
   end
 

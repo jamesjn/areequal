@@ -1,10 +1,8 @@
 <div class="container">
   <h1><%= @art.title %></h1>
   <div class="row">
-    <div class="span1">
-      <h3><%= @owner.name %> <h3>
-    </div>
-    <div class="span13">
+    <div class="span5">
+      <h3><%= @owner.email%> <h3>
       <button class="btn info">Follow</button> <span class="label">2 Works of Art</span> 
     </div>
   </div>
@@ -44,9 +42,11 @@
   </div>
   <div class="row">
     <div class="span16">
-      <button class="btn primary">Like</button>
-      <button class="btn ">Dislike</button>
-      <button class="btn info">Add to Favorites</button>
+      <% if @favorited.empty? %>
+        <button id="add_to_favorites" data-art-id="<%=@art.id%>" class="btn info">Add to Favorites</button>
+      <% else %>
+        <button id="favorited" data-art-id="<%=@art.id%>" class="btn info">Favorited</button>
+      <% end %>
       <button class="btn success">Share</button>
       <button class="btn danger">Flag</button>
       <div class="fb-like" data-href="http://www.jamesjn.com/areequal/arts/<%= @art.id %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
