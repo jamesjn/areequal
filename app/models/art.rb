@@ -10,4 +10,9 @@ class Art < ActiveRecord::Base
 
     has user_id, created_at, updated_at
   end
+
+  def self.before(date)
+    where("created_at >=?", date)
+  end
+    
 end

@@ -37,4 +37,32 @@ class UsersController < ApplicationController
     @current_user = current_user
     @users_art = Art.where(:user_id => current_user.id)
   end
+
+  def user_page
+    @user = current_user
+  end
+
+  def myart
+    @user = current_user
+    @users_art = Art.where(:user_id => current_user.id)
+    render :myart, :layout => false
+  end
+
+  def settings
+    @user = current_user
+    render :edit, :layout => false
+  end
+
+  def messages
+    render :messages, :layout => false
+  end
+
+  def subscriptions
+    render :subscriptions, :layout => false
+  end
+
+  def favorites
+    render :favorites, :layout => false
+  end
+
 end

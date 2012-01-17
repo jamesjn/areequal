@@ -47,10 +47,31 @@ class ArtsController < ApplicationController
   end
 
   def index
+    case params[:sort]
+    when "Most Recent"
+      sort = "created_at"
+    when "Most Liked"
+      sort = "liked_count"
+    when "Most Favorited"
+      sort = "favorited_count"
+    when "Most Viewed"
+      sort = "views_count"
+    end
+
+    case params[:time_range]
+    when "All Time"
+      time_range = 5.years.ago
+    when "Today"
+      time_range = 1.day.ago
+    when "This week"
+      time_range = 1.week.ago
+    when "This month"
+      time_range = 1.month.ago
+    end
     if params[:category] == 'All'
-      @arts = Art.all
+      @arts = Art.where("created_at >= ?", time_range).order(sort)
     else
-      @arts = Art.where(:category => params[:category])
+      @arts = Art.where(:category => params[:category]).before(time_range).order(sort)
     end
     render :partial => "shared/art_listing", :collection => @arts
   end

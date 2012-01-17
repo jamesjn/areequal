@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113023056) do
+ActiveRecord::Schema.define(:version => 20120117032849) do
 
   create_table "arts", :force => true do |t|
     t.integer  "user_id"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20120113023056) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "liked_count"
+    t.integer  "favorited_count"
+    t.integer  "views"
   end
 
   create_table "users", :force => true do |t|
