@@ -26,6 +26,10 @@ gem "devise"
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
 
+gem 'rspec-rails', :group => [:development, :test]
+gem 'database_cleaner', :group => :test
+gem 'factory_girl_rails', :group => :test
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -41,5 +45,9 @@ gem 'omniauth-openid'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'rspec'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
+
+
