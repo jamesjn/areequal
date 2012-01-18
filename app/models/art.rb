@@ -2,6 +2,7 @@ class Art < ActiveRecord::Base
   belongs_to :user
   has_many :favorite
   validates :user_id, :title, :description, :art1_type, :art1_info, :art2_type, :art2_info, :category, :presence => true
+  attr_accessor :views
 
   define_index do
     indexes title

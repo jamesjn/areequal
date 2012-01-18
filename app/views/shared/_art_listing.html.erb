@@ -18,6 +18,6 @@
     </ul>
   </div>
   <div class="span3">
-    <span style="font-weight:bold;"><%= art_listing.title %></span> @<%= art_listing.user.name %>
+    <span style="font-weight:bold;"><%= art_listing.title %></span> @<%= art_listing.user.name || art_listing.user.email%>
   </div>
 </div>

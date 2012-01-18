@@ -36,3 +36,10 @@ $("#add_to_favorites").live "click", (event) ->
     if data["favorited"] == true
       $("#add_to_favorites").html("Favorited") 
       $("#add_to_favorites").attr("id", "Favorited") 
+
+$("#add_to_followings").live "click", (event) ->
+  owner_id = $(this).attr("data-owner-id")
+  $.post "http://www.jamesjn.com/areequal/follows", {follow_id:owner_id}, (data) ->
+    if data["following"] == true
+      $("#add_to_followings").html("followed") 
+      $("#add_to_followings").attr("id", "followed") 

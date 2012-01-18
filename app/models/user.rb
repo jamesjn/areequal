@@ -7,12 +7,14 @@ class User < ActiveRecord::Base
   devise :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :name, :password, :profile_url, :password_confirmation, :remember_me
   has_many :art
   has_many :favorites
   has_many :favorite_arts, :through => :favorites, :source => :art
-  has_many :followers, :class_name => "Followings", :foreign_key => "user_id"
-  has_many :followings, :class_name => "Followings", :foreign_key => "follower_id"
+  has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many :followings, :through => :relationships, :source => :followed
+  has_many :reverse_relationships, :foreign_key => "followed_id", :class_name => "Relationship", :dependent => :destroy
+  has_many :followers, :through => :reverse_relationships, :source => :follower
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
 

@@ -4,3 +4,10 @@
 
 $(".arts_listing_edit").live "click", (event)->
   window.location = ("arts/" + $(this).attr("data-id") + "/edit")
+
+
+$("#unsubscribe").live "click", (event) ->
+  user_id = $(this).attr("data-user-id")
+  $.post "http://www.jamesjn.com/areequal/follows/unsubscribe", {user_id:user_id}, (data) ->
+    if data["unsubscribed"] == true
+      alert "unsubscribed"

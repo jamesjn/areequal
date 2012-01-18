@@ -58,6 +58,8 @@ class UsersController < ApplicationController
   end
 
   def subscriptions
+    @current_user = current_user
+    @followings_art = current_user.followings.collect(&:art).flatten 
     render :subscriptions, :layout => false
   end
 
