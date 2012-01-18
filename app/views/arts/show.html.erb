@@ -3,11 +3,13 @@
   <div class="row">
     <div class="span5">
       <h3><%= @owner.name || @owner.email%> <h3>
-      <% if @followed %>
-        <button id="followed" data-owner-id="<%=@owner.id%>" class="btn info">Followed</button> 
-      <% else %>
-        <button id="add_to_followings" data-owner-id="<%=@owner.id%>" class="btn info">Follow</button> 
-      <% end %> 
+      <% if @followed%>
+        <% if @followed.empty? %>
+          <button id="add_to_followings" data-owner-id="<%=@owner.id%>" class="btn info">Follow</button> 
+        <% else %>
+          <button id="followed" data-owner-id="<%=@owner.id%>" class="btn info">Followed</button> 
+        <% end %> 
+      <% end %>
       <span class="label">2 Works of Art</span> 
     </div>
   </div>
