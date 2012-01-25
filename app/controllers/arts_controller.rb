@@ -34,6 +34,7 @@ class ArtsController < ApplicationController
       @art.increment!(:views)
     end
     @owner = User.find(@art.user_id)
+    @num_art = @owner.art.count
     if current_user
       @favorited = Favorite.where(:user_id => current_user.id, :art_id => @art.id) 
       @followed = Relationship.where(:follower_id => current_user.id, :followed_id => @art.user_id)
